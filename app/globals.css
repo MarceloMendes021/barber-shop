@@ -1,9 +1,8 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@config "../tailwind.config.ts";
+@import "tailwindcss";
 
 @layer base {
-  .dark {
+  :root {
     --background: 225 9% 9%;
     --foreground: 210 40% 98%;
 
@@ -38,12 +37,16 @@
 
 @layer base {
   * {
-    @apply border-border antialiased;
+    border-color: hsl(var(--border));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   html {
-    @apply h-full;
+    height: 100%;
   }
   body {
-    @apply bg-background text-foreground h-full;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    height: 100%;
   }
 }
